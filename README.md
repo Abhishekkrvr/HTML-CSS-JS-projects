@@ -4,8 +4,8 @@ HTML,CSS,JS projects
 
 ```This is a simple **fixed navbar** that changes background color when the user scrolls down. It is useful for websites where you want a transparent navbar initially but need a solid background after scrolling.```
 
-```## 📌 How to Use?  
-
+```## 📌 How to Use?```
+```
 ### 1️⃣ Add this HTML structure
 <nav class="navbar">
     <div class="logo">My Website</div>
