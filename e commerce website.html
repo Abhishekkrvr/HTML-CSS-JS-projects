@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Élève | Modern Feminine Fashion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #faf9f7;
+        }
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        .hover-scale:hover {
+            transform: scale(1.02);
+        }
+        .product-card:hover .quick-view {
+            opacity: 1;
+        }
+        .quick-view {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .cart-count {
+            top: -8px;
+            right: -8px;
+        }
+    </style>
+</head>
+<body class="text-beige-900">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm py-4 px-6 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="font-serif text-2xl font-medium text-pink-300">Élève</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#" class="hover:text-pink-300 transition">Shop</a>
+                <a href="#" class="hover:text-pink-300 transition">Collections</a>
+                <a href="#" class="hover:text-pink-300 transition">About</a>
+                <a href="#" class="hover:text-pink-300 transition">Journal</a>
+            </div>
+            <div class="flex items-center space-x-6">
+                <a href="#" class="hover:text-pink-300 transition"><i class="fas fa-search"></i></a>
+                <a href="#" class="hover:text-pink-300 transition"><i class="fas fa-user"></i></a>
+                <div class="relative">
+                    <a href="#" class="hover:text-pink-300 transition"><i class="fas fa-shopping-bag"></i></a>
+                    <span class="cart-count absolute bg-pink-300 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">0</span>
+                </div>
+                <button class="md:hidden">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative bg-pink-50 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 py-20 md:py-32 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 z-10">
+                <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-medium mb-6">Timeless Pieces for the Modern Woman</h1>
+                <p class="text-lg mb-8 max-w-lg">Discover our curated collection of feminine essentials designed to elevate your everyday.</p>
+                <a href="#" class="bg-pink-300 hover:bg-pink-400 text-white px-8 py-3 rounded-sm transition inline-block">Shop Now</a>
+            </div>
+            <div class="md:w-1/2 mt-12 md:mt-0 relative">
+                <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                     alt="Woman in elegant dress" 
+                     class="w-full h-auto rounded-lg shadow-lg hover-scale">
+                <div class="absolute -bottom-6 -left-6 w-64 h-64 bg-beige-200 rounded-lg -z-10"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop by Category -->
+    <section class="py-20 px-6 max-w-7xl mx-auto">
+        <h2 class="font-serif text-3xl text-center mb-12">Shop by Category</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <a href="#" class="group">
+                <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition text-center">
+                    <div class="w-24 h-24 mx-auto mb-4 bg-pink-100 rounded-full flex items-center justify-center">
+                        <i class="fas fa-tshirt text-pink-300 text-3xl"></i>
+                    </div>
+                    <h3 class="font-medium group-hover:text-pink-300 transition">Dresses</h3>
+                </div>
+            </a>
+            <a href="#" class="group">
+                <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition text-center">
+                    <div class="w-24 h-24 mx-auto mb-4 bg-beige-100 rounded-full flex items-center justify-center">
+                        <i class="fas fa-vest text-beige-400 text-3xl"></i>
+                    </div>
+                    <h3 class="font-medium group-hover:text-pink-300 transition">Tops</h3>
+                </div>
+            </a>
+            <a href="#" class="group">
+                <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition text-center">
+                    <div class="w-24 h-24 mx-auto mb-4 bg-pink-100 rounded-full flex items-center justify-center">
+                        <i class="fas fa-ankh text-pink-300 text-3xl"></i>
+                    </div>
+                    <h3 class="font-medium group-hover:text-pink-300 transition">Bottoms</h3>
+                </div>
+            </a>
+            <a href="#" class="group">
+                <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition text-center">
+                    <div class="w-24 h-24 mx-auto mb-4 bg-beige-100 rounded-full flex items-center justify-center">
+                        <i class="fas fa-ring text-beige-400 text-3xl"></i>
+                    </div>
+                    <h3 class="font-medium group-hover:text-pink-300 transition">Accessories</h3>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Featured Collection -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="font-serif text-3xl mb-2">Summer Collection</h2>
+            <p class="text-beige-600 mb-8">Lightweight fabrics and effortless silhouettes</p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card group relative">
+                    <div class="relative overflow-hidden rounded-lg mb-4">
+                        <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                             alt="Linen dress" 
+                             class="w-full h-auto hover-scale">
+                        <button class="quick-view absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white text-pink-300 px-4 py-2 rounded-sm font-medium">
+                            Quick View
+                        </button>
+                        <span class="absolute top-4 right-4 bg-pink-300 text-white text-xs px-2 py-1 rounded">New</span>
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-medium">Linen Midi Dress</h3>
+                            <p class="text-beige-600">Beige</p>
+                        </div>
+                        <p class="font-medium">$98</p>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card group relative">
+                    <div class="relative overflow-hidden rounded-lg mb-4">
+                        <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                             alt="Silk blouse" 
+                             class="w-full h-auto hover-scale">
+                        <button class="quick-view absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white text-pink-300 px-4 py-2 rounded-sm font-medium">
+                            Quick View
+                        </button>
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-medium">Silk Blouse</h3>
+                            <p class="text-beige-600">Pink</p>
+                        </div>
+                        <p class="font-medium">$128</p>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card group relative">
+                    <div class="relative overflow-hidden rounded-lg mb-4">
+                        <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                             alt="Wide-leg pants" 
+                             class="w-full h-auto hover-scale">
+                        <button class="quick-view absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white text-pink-300 px-4 py-2 rounded-sm font-medium">
+                            Quick View
+                        </button>
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-medium">Wide-leg Pants</h3>
+                            <p class="text-beige-600">White</p>
+                        </div>
+                        <p class="font-medium">$85</p>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card group relative">
+                    <div class="relative overflow-hidden rounded-lg mb-4">
+                        <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                             alt="Knit cardigan" 
+                             class="w-full h-auto hover-scale">
+                        <button class="quick-view absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white text-pink-300 px-4 py-2 rounded-sm font-medium">
+                            Quick View
+                        </button>
+                        <span class="absolute top-4 right-4 bg-pink-300 text-white text-xs px-2 py-1 rounded">Sale</span>
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-medium">Knit Cardigan</h3>
+                            <p class="text-beige-600">Cream</p>
+                        </div>
+                        <p class="font-medium text-pink-300">$68 <span class="line-through text-beige-400">$85</span></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="border border-pink-300 text-pink-300 hover:bg-pink-300 hover:text-white px-8 py-3 rounded-sm transition inline-block">View All</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Feed -->
+    <section class="py-20 px-6 bg-pink-50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="font-serif text-3xl text-center mb-4">Follow Along @elevestyle</h2>
+            <p class="text-center text-beige-600 max-w-2xl mx-auto mb-12">Join our community and tag us to be featured</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <a href="#" class="hover-scale">
+                    <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                         alt="Instagram post" 
+                         class="w-full h-full object-cover rounded-lg">
+                </a>
+                <a href="#" class="hover-scale">
+                    <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                         alt="Instagram post" 
+                         class="w-full h-full object-cover rounded-lg">
+                </a>
+                <a href="#" class="hover-scale">
+                    <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                         alt="Instagram post" 
+                         class="w-full h-full object-cover rounded-lg">
+                </a>
+                <a href="#" class="hover-scale">
+                    <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                         alt="Instagram post" 
+                         class="w-full h-full object-cover rounded-lg">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-20 px-6 bg-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="font-serif text-3xl mb-4">Join Our Community</h2>
+            <p class="text-beige-600 mb-8 max-w-2xl mx-auto">Subscribe to receive updates on new arrivals, exclusive offers, and styling inspiration.</p>
+            
+            <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 border border-beige-200 rounded-sm focus:outline-none focus:ring-1 focus:ring-pink-300">
+                <button type="submit" class="bg-pink-300 hover:bg-pink-400 text-white px-6 py-3 rounded-sm transition">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-beige-100 text-beige-700 py-12 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <h3 class="font-serif text-xl text-pink-300 mb-4">Élève</h3>
+                <p class="mb-4">Modern femininity through timeless design.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:text-pink-300 transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-pink-300 transition"><i class="fab fa-pinterest"></i></a>
+                    <a href="#" class="hover:text-pink-300 transition"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-medium mb-4">Shop</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-pink-300 transition">New Arrivals</a></li>
+                    <li><a href="#" class="hover:text-pink-300 transition">Dresses</a></li>
+                    <li><a href="#" class="hover:text-pink-300 transition">Tops</a></li>
+                    <li><a href="#" class="hover:text-pink-300 transition">Bottoms</a></li>
+                    <li><a href="#" class="hover:text-pink-300 transition">Accessories</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-medium mb-4">Information</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-pink-300 transition">About Us</a></li>
+                    <li><a href="#" class="hover:text-pink-300 transition">Sustainability</a></li>
+                    <li><a href="#" class="hover:text-pink-300 transition">Journal</a></li>
+                    <li><a href="#" class="hover:text-pink-300 transition">Shipping & Returns</a></li>
+                    <li><a href="#" class="hover:text-pink-300 transition">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-medium mb-4">Contact</h4>
+                <address class="not-italic">
+                    <p class="mb-2">123 Fashion Avenue</p>
+                    <p class="mb-2">New York, NY 10001</p>
+                    <p class="mb-4">hello@elevestyle.com</p>
+                    <p>Mon-Fri: 9am-5pm EST</p>
+                </address>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto border-t border-beige-200 mt-12 pt-8 text-sm text-center">
+            <p>&copy; 2023 Élève. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Quick View Modal (hidden by default) -->
+    <div class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4" id="quickViewModal">
+        <div class="bg-white max-w-4xl w-full rounded-lg overflow-hidden max-h-screen overflow-y-auto">
+            <div class="relative">
+                <button class="absolute top-4 right-4 text-beige-600 hover:text-pink-300" onclick="closeModal()">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="p-8">
+                        <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                             alt="Product" 
+                             class="w-full rounded-lg">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-serif text-2xl mb-2">Linen Midi Dress</h3>
+                        <p class="text-pink-300 text-xl mb-4">$98</p>
+                        <p class="text-beige-600 mb-6">Crafted from premium linen, this midi dress features a relaxed silhouette with subtle gathers at the waist for effortless elegance.</p>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-medium mb-2">Color</h4>
+                            <div class="flex space-x-2">
+                                <button class="w-8 h-8 rounded-full bg-beige-300 border-2 border-white shadow"></button>
+                                <button class="w-8 h-8 rounded-full bg-pink-200 border-2 border-white shadow"></button>
+                                <button class="w-8 h-8 rounded-full bg-white border-2 border-beige-200 shadow"></button>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-medium mb-2">Size</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <button class="px-4 py-2 border border-beige-200 hover:border-pink-300 hover:text-pink-300 rounded-sm">XS</button>
+                                <button class="px-4 py-2 border border-beige-200 hover:border-pink-300 hover:text-pink-300 rounded-sm">S</button>
+                                <button class="px-4 py-2 border border-beige-200 bg-pink-100 text-pink-300 border-pink-300 rounded-sm">M</button>
+                                <button class="px-4 py-2 border border-beige-200 hover:border-pink-300 hover:text-pink-300 rounded-sm">L</button>
+                                <button class="px-4 py-2 border border-beige-200 hover:border-pink-300 hover:text-pink-300 rounded-sm">XL</button>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4 mb-6">
+                            <div class="flex border border-beige-200 rounded-sm">
+                                <button class="px-3 py-2 hover:bg-beige-50">-</button>
+                                <span class="px-4 py-2 border-x border-beige-200">1</span>
+                                <button class="px-3 py-2 hover:bg-beige-50">+</button>
+                            </div>
+                            <button class="flex-grow bg-pink-300 hover:bg-pink-400 text-white px-6 py-3 rounded-sm transition">
+                                Add to Cart
+                            </button>
+                        </div>
+                        
+                        <div class="border-t border-beige-200 pt-4">
+                            <h4 class="font-medium mb-2">Details</h4>
+                            <ul class="text-sm space-y-1 text-beige-600">
+                                <li>• 100% Premium linen</li>
+                                <li>• Machine wash cold</li>
+                                <li>• Mid-length silhouette</li>
+                                <li>• Relaxed fit</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple modal toggle functionality
+        function openModal() {
+            document.getElementById('quickViewModal').classList.remove('hidden');
+            document.getElementById('quickViewModal').classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            document.getElementById('quickViewModal').classList.add('hidden');
+            document.getElementById('quickViewModal').classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Add event listeners to all quick view buttons
+        document.querySelectorAll('.quick-view').forEach(button => {
+            button.addEventListener('click', openModal);
+        });
+        
+        // Close modal when clicking outside
+        document.getElementById('quickViewModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
