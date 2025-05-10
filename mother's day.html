@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Mother's Day</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #ffeef8 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            color: #333;
+        }
+        
+        .container {
+            position: relative;
+            width: 90%;
+            max-width: 800px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            padding: 0;
+            margin: 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            padding: 30px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .content {
+            padding: 30px;
+            position: relative;
+        }
+        
+        .message {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .photo-frame {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 25px;
+            border-radius: 50%;
+            background: #fff;
+            border: 10px solid #fad0c4;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .photo-frame:hover {
+            transform: scale(1.05);
+            border-color: #ff9a9e;
+        }
+        
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #ffeef8;
+            color: #ff9a9e;
+            font-size: 3rem;
+        }
+        
+        .memories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .memory {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            background: #ffeef8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ff9a9e;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .memory:hover {
+            transform: translateY(-5px);
+            background: #fad0c4;
+            color: white;
+        }
+        
+        .gift-btn {
+            display: block;
+            width: 200px;
+            margin: 0 auto;
+            padding: 15px;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 154, 158, 0.4);
+        }
+        
+        .gift-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 154, 158, 0.6);
+        }
+        
+        .gift-btn:active {
+            transform: translateY(0);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+        
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+        
+        .modal.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            transform: scale(0.8);
+            transition: all 0.3s ease;
+        }
+        
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+        
+        .modal h2 {
+            font-family: 'Dancing Script', cursive;
+            color: #ff9a9e;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        
+        .modal p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #888;
+        }
+        
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .memory-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+        
+        .memory-modal.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .memory-content {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            transform: scale(0.8);
+            transition: all 0.3s ease;
+        }
+        
+        .memory-modal.active .memory-content {
+            transform: scale(1);
+        }
+        
+        .memory-img {
+            max-width: 100%;
+            max-height: 300px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .memory-title {
+            font-family: 'Dancing Script', cursive;
+            color: #ff9a9e;
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+        }
+        
+        .memory-date {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .memory-desc {
+            line-height: 1.6;
+        }
+        
+        .close-memory {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="hearts" id="hearts"></div>
+            <h1>Happy Mother's Day!</h1>
+            <p>To the most amazing mom in the world</p>
+        </div>
+        
+        <div class="content">
+            <div class="message">
+                <p>Dear Mom,</p>
+                <p>On this special day, I want to take a moment to thank you for all the love, care, and sacrifices you've made for me. You're my rock, my inspiration, and my greatest supporter.</p>
+                <p>No words can truly express how much you mean to me. I love you more than words can say!</p>
+            </div>
+            
+            <div class="photo-frame" id="photoFrame">
+                <div class="photo-placeholder">
+                    <span>❤️</span>
+                </div>
+            </div>
+            
+            <h2 style="text-align: center; margin-bottom: 20px; color: #ff9a9e; font-family: 'Dancing Script', cursive;">Our Special Memories</h2>
+            
+            <div class="memories">
+                <div class="memory" data-memory="1">🎂</div>
+                <div class="memory" data-memory="2">🏖️</div>
+                <div class="memory" data-memory="3">🎄</div>
+                <div class="memory" data-memory="4">🎓</div>
+                <div class="memory" data-memory="5">🏡</div>
+            </div>
+            
+            <button class="gift-btn pulse" id="giftBtn">Your Special Gift</button>
+        </div>
+        
+        <div class="footer">
+            <p>Made with love ❤️</p>
+        </div>
+    </div>
+    
+    <div class="modal" id="giftModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h2>For You, Mom</h2>
+            <p>This year, your gift is a promise...</p>
+            <p>A promise to spend more quality time with you, to listen more, to appreciate you every day (not just on Mother's Day), and to be the best child I can be.</p>
+            <p>Plus, I'll do all the dishes for a week! 😊</p>
+            <p>I love you more than words can express!</p>
+        </div>
+    </div>
+    
+    <div class="memory-modal" id="memoryModal">
+        <div class="memory-content">
+            <span class="close-memory" id="closeMemory">&times;</span>
+            <div class="memory-img" id="memoryImg"></div>
+            <h2 class="memory-title" id="memoryTitle">Memory Title</h2>
+            <div class="memory-date" id="memoryDate">Date</div>
+            <p class="memory-desc" id="memoryDesc">Memory description goes here.</p>
+        </div>
+    </div>
+    
+    <div class="floating-hearts" id="floatingHearts"></div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create floating hearts in header
+            const heartsContainer = document.getElementById('hearts');
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.top = Math.random() * 100 + '%';
+                heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                heart.style.animationDuration = (Math.random() * 5 + 3) + 's';
+                heart.style.animationDelay = (Math.random() * 3) + 's';
+                heartsContainer.appendChild(heart);
+            }
+            
+            // Gift button functionality
+            const giftBtn = document.getElementById('giftBtn');
+            const giftModal = document.getElementById('giftModal');
+            const closeModal = document.getElementById('closeModal');
+            
+            giftBtn.addEventListener('click', function() {
+                giftModal.classList.add('active');
+                createHearts(20);
+            });
+            
+            closeModal.addEventListener('click', function() {
+                giftModal.classList.remove('active');
+            });
+            
+            // Memory functionality
+            const memories = document.querySelectorAll('.memory');
+            const memoryModal = document.getElementById('memoryModal');
+            const closeMemory = document.getElementById('closeMemory');
+            const memoryImg = document.getElementById('memoryImg');
+            const memoryTitle = document.getElementById('memoryTitle');
+            const memoryDate = document.getElementById('memoryDate');
+            const memoryDesc = document.getElementById('memoryDesc');
+            
+            const memoryData = {
+                1: {
+                    emoji: '🎂',
+                    title: 'My Birthday',
+                    date: 'Every year, but especially the first one',
+                    desc: 'You made every birthday special with your love and care. From the cakes you baked to the parties you organized, you always made me feel like the most important person in the world.'
+                },
+                2: {
+                    emoji: '🏖️',
+                    title: 'Our Beach Vacation',
+                    date: 'Summer 2015',
+                    desc: 'Remember that time we went to the beach and built that huge sandcastle? You spent hours helping me, even though the waves kept destroying it. Your patience and joy in making me happy is something I\'ll never forget.'
+                },
+                3: {
+                    emoji: '🎄',
+                    title: 'Christmas Magic',
+                    date: 'Every December',
+                    desc: 'You made Christmas magical every year. The way you stayed up late wrapping presents, the special breakfasts, and the love you put into every detail taught me the true meaning of the holidays.'
+                },
+                4: {
+                    emoji: '🎓',
+                    title: 'Graduation Day',
+                    date: 'June 2020',
+                    desc: 'I saw the pride in your eyes when I walked across that stage. Your support through all my education, the late-night study sessions you stayed up for, and your belief in me made this moment possible.'
+                },
+                5: {
+                    emoji: '🏡',
+                    title: 'Everyday Moments',
+                    date: 'All the time',
+                    desc: 'It\'s not just the big moments, but all the little things you do every day that mean the most. The packed lunches with notes, the bandaids on scraped knees, the advice when I needed it - these everyday acts of love are what make you the best mom.'
+                }
+            };
+            
+            memories.forEach(memory => {
+                memory.addEventListener('click', function() {
+                    const memoryId = this.getAttribute('data-memory');
+                    const data = memoryData[memoryId];
+                    
+                    memoryImg.innerHTML = `<span style="font-size: 4rem;">${data.emoji}</span>`;
+                    memoryTitle.textContent = data.title;
+                    memoryDate.textContent = data.date;
+                    memoryDesc.textContent = data.desc;
+                    
+                    memoryModal.classList.add('active');
+                    createHearts(10);
+                });
+            });
+            
+            closeMemory.addEventListener('click', function() {
+                memoryModal.classList.remove('active');
+            });
+            
+            // Photo frame interaction
+            const photoFrame = document.getElementById('photoFrame');
+            let photoClicked = false;
+            
+            photoFrame.addEventListener('click', function() {
+                if (!photoClicked) {
+                    this.querySelector('.photo-placeholder').innerHTML = '<span style="font-size: 4rem;">👩‍👦</span>';
+                    photoClicked = true;
+                    createHearts(15);
+                    
+                    setTimeout(() => {
+                        this.querySelector('.photo-placeholder').innerHTML = '<span style="font-size: 4rem;">❤️</span>';
+                        photoClicked = false;
+                    }, 3000);
+                }
+            });
+            
+            // Create floating hearts function
+            function createHearts(count) {
+                const container = document.getElementById('floatingHearts');
+                
+                for (let i = 0; i < count; i++) {
+                    const heart = document.createElement('div');
+                    heart.classList.add('heart');
+                    heart.innerHTML = '❤️';
+                    heart.style.left = Math.random() * 100 + '%';
+                    heart.style.bottom = '-20px';
+                    heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                    heart.style.animationDuration = (Math.random() * 5 + 3) + 's';
+                    heart.style.animationDelay = (Math.random() * 0.5) + 's';
+                    container.appendChild(heart);
+                    
+                    // Remove heart after animation
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 6000);
+                }
+            }
+            
+            // Create initial floating hearts
+            setInterval(() => {
+                createHearts(3);
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
