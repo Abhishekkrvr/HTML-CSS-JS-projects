@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Clock</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #fdd534;
+      --card-bg: #ffffff;
+      --text-main: #1a1a1a;
+      --text-muted: #666;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      --border: #eaeaea;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      background-color: var(--bg-color);
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .clock-container {
+      background-color: var(--card-bg);
+      padding: clamp(2rem, 5vw, 4rem) clamp(2rem, 6vw, 5rem);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      border: 1px solid var(--border);
+      width: 100%;
+      max-width: 900px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .time {
+      font-size: clamp(4rem, 10vw, 8rem);
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 1.2rem;
+      letter-spacing: 1.5px;
+    }
+
+    .date {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    /* Media Query for tablets */
+    @media (max-width: 1024px) {
+      .clock-container {
+        padding: 3rem 4rem;
+      }
+
+      .time {
+        font-size: clamp(3rem, 8vw, 6rem);
+      }
+
+      .date {
+        font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+      }
+    }
+
+    /* Media Query for mobile phones */
+    @media (max-width: 600px) {
+      .clock-container {
+        padding: 2rem 1.5rem;
+        border-radius: 16px;
+      }
+
+      .time {
+        font-size: clamp(2.5rem, 10vw, 5rem);
+        letter-spacing: 1px;
+      }
+
+      .date {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Media Query for large screens (TV, big desktop monitors) */
+    @media (min-width: 1500px) {
+      .clock-container {
+        padding: 4rem 6rem;
+      }
+
+      .time {
+        font-size: clamp(4rem, 7vw, 10rem);
+      }
+
+      .date {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="clock-container">
+    <div class="time" id="time">00:00:00</div>
+    <div class="date" id="date">Loading date...</div>
+  </div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+
+      const timeString = `${hours}:${minutes}:${seconds}`;
+      const dateString = now.toLocaleDateString('en-US', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+
+      document.getElementById('time').textContent = timeString;
+      document.getElementById('date').textContent = dateString;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+</body>
+</html>
